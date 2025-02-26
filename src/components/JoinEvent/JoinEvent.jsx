@@ -14,7 +14,7 @@ function JoinEvent() {
         description: ''
     });
 
-    const baseUrl = 'http://localhost:3000';
+    const baseUrl = 'https://api.cricpay.io';
 
     const handleChange = (e) => {
         setFormData({
