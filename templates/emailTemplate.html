@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.cdnfonts.com/css/avenir" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Template</title>
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/avenir');
+
+        .email-font, p, div, td, span, h1, h2, h3, h4  {
+            font-family: 'Avenir', sans-serif;
+        }
+
+        body {
+            font-family: 'Avenir', sans-serif;
+            margin: 0;
+            padding: 0;
+            /* background: linear-gradient(146deg, #0456FA, #020c42 69%); */
+            /* background-color: #d3d3d3; */
+        }
+
+        .email-container {
+            max-width: 680px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background: url('https://thegawindustries.com/public/gaw_mail_cover.png') no-repeat center;
+            background-size: cover;
+            padding: 100px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        .header img {
+            width: 200px;
+        }
+
+        .email-body {
+            padding: 2rem 3rem;
+        }
+
+        .email-body h2 {
+            margin: 0 0 15px;
+            font-size: 1.4rem;
+            color: #333;
+        }
+
+        .email-body p {
+            margin: 10px 0;
+            line-height: 1.6;
+            color: #666666;
+        }
+
+        .footer {
+            background-color: #f4f4f8;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 2rem;
+            margin: 10px 0 3rem;
+            justify-content: center;
+
+        }
+
+        .social-icons img {
+            margin: 0 8px;
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+        }
+
+        a {
+            color: #0456FA;
+            text-decoration: none;
+        }
+
+        .user-name {
+            font-size: 30px !important;
+            margin-bottom: 3rem !important;
+        }
+
+
+        .mail-container {
+            background-color: #d2d2d2; padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .mail-container {
+                padding: 1rem 0;
+            }
+            .header img {
+                width: 150px;
+            }
+
+            .email-container {
+                margin: 20px;
+            }
+
+            .header {
+                padding: 40px 10px;
+            }
+
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .email-body {
+                padding: 20px;
+            }
+
+            .email-body h2 {
+                font-size: 1.2rem;
+            }
+
+            .footer {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .email-body {
+                padding: 1.5rem;
+            }
+
+            .email-body h2 {
+                font-size: 1rem;
+            }
+
+            .footer p {
+                font-size: 0.8rem;
+            }
+
+            .social-icons img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        .myTable tr td,
+        .myTable tr th {
+            padding: 5px;
+        }
+
+        .mt-3 {
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="email-font mail-container">
+        <div class="email-font email-container">
+            <div class="email-font header">
+                <img src="https://cricpay.io/assets/logo.jpg" alt="">
+            </div>
+            <div class="email-font email-body">
+                <div style="text-align: right; font-size: 0.9rem; color: #888; margin-bottom: 20px;">
+                    {{todaysDate}}
+                </div>
+                <!-- <h2 class="user-name">Hey Robert,</h2> -->
+                <p class="email-font">
+                <h2><strong>Hey Admin,</strong></h2>
+                </p>
+                <p class="email-font">You have received a new enquiry from CricPay Website. <br> Here are the details:
+                </p>
+                
+                <table class="myTable" border="1" style="border-collapse: collapse; width: 100%;">
+                    <thead>
+                        <tr>
+                            <th style="text-align: left;">Field</th>
+                            <th style="text-align: left;">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>First Name:</td>
+                            <td>{{firstName}}</td>
+                        </tr>
+                        <tr>
+                            <td>Last Name:</td>
+                            <td>{{lastName}}</td>
+                        </tr>
+                        <tr>
+                            <td>Email:</sd>
+                            <td>{{email}}</td>
+                        </tr>
+                        <tr>
+                            <td>Phone Number:</td>
+                            <td>{{phone}}</td>
+                        </tr>
+                        <tr>
+                            <td>Company Name:</td>
+                            <td>{{company}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+
+                <h3>Message from Visitor:</h3>
+                <p class="email-font">{{description}}</p>
+                <br>
+                <p class="email-font">Yours sincerely,</p>
+                <p class="email-font">Talent Acquisition</p>
+                <strong>CricPay</strong>
+            </div>
+            <div class="email-font footer">
+                <p class="email-font">
+                    For inquiries, reach out to us at <a
+                        href="mailto:admin@thegawindustries.com">info@cricpay.io</a>.
+                </p>
+
+                <!-- <p class="email-font">1334, Sharjah, United Arab Emirates.</p> -->
+                <p class="email-font">
+                    All rights reserved.
+                </p>
+                <!-- <p style="margin-top: 2rem;"><a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a></p> -->
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

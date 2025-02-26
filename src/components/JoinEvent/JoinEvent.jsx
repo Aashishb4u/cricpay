@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { assets } from '../../lib/assets';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function JoinEvent() {
+    const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -11,6 +14,8 @@ function JoinEvent() {
         description: ''
     });
 
+    const baseUrl = 'http://localhost:3000';
+
     const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -18,20 +23,51 @@ function JoinEvent() {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Form submitted:', formData);
+        setLoading(true);
+
+        try {
+            const response = await fetch(`${baseUrl}/join-event`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                toast.success('Successfully joined the event!', {
+                    position: 'top-right',
+                    autoClose: 3000
+                });
+                setFormData({ firstName: '', lastName: '', email: '', company: '', phone: '', description: '' });
+            } else {
+                toast.error(result.message || 'Something went wrong!', {
+                    position: 'top-right',
+                    autoClose: 3000
+                });
+            }
+        } catch (error) {
+            toast.error('Failed to submit. Please try again later.', {
+                position: 'top-right',
+                autoClose: 3000
+            });
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
         <div className="bg-white flex flex-col items-center px-4 py-12">
+            {/* Toast Notification Container */}
+            <ToastContainer />
+
             {/* Logo Section */}
             <div className="mb-8">
-                <img
-                    src={assets.logo}
-                    alt="CricPay Logo"
-                    className="h-40 w-auto"
-                />
+                <img src={assets.logo} alt="CricPay Logo" className="h-40 w-auto" />
             </div>
 
             {/* Main Content Container */}
@@ -119,15 +155,13 @@ function JoinEvent() {
                         </div>
                     </div>
 
-                    {/* Submit Button */}
                     <div className="flex justify-center mt-8">
                         <button
                             type="submit"
-                            className="px-12 py-4 bg-[#920323] text-white font-bold rounded-lg 
-                                     transform hover:scale-105 hover:shadow-lg hover:shadow-[#4CAF50]/20 
-                                     active:scale-95 transition-all duration-300 uppercase tracking-wider"
+                            className="px-12 py-4 bg-[#920323] text-white font-bold rounded-lg transform hover:scale-105 hover:shadow-lg hover:shadow-[#4CAF50]/20 active:scale-95 transition-all duration-300 uppercase tracking-wider"
+                            disabled={loading}
                         >
-                            Join Event
+                            {loading ? 'Submitting...' : 'Join Event'}
                         </button>
                     </div>
                 </form>
