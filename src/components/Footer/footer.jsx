@@ -12,6 +12,7 @@ const Footer = () => {
                         className="object-cover h-full w-full"
                     />
                 </div>
+                <p className="mb-4">Info@cricpay.io</p>
                 <p className="text-black/80 text-sm">
                     Copyright © 2021 CricPay. All Rights Reserved.
                 </p>

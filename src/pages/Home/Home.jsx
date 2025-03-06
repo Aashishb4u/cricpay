@@ -58,7 +58,7 @@ function Home() {
                     <div className="bg-white/90 backdrop-blur-lg p-8 md:p-10 rounded-2xl border border-red-200 transition-all duration-300 hover:shadow-lg">
                         <h2 className="text-4xl font-bold text-gray-800 mb-6">About</h2>
                         <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                            CricPay, founded in 2011, specializes in state-of-the-art payment processing and gateway technology. With expertise in payment solutions, risk management, and AI-driven innovations, we empower merchants to streamline operations and safeguard revenue. Our mission is to revolutionize payment experiences and enable global reach for businesses.
+                            CricPay, founded in 2021, specializes in state-of-the-art payment processing and gateway technology. With expertise in payment solutions, risk management, and AI-driven innovations, we empower merchants to streamline operations and safeguard revenue. Our mission is to revolutionize payment experiences and enable global reach for businesses.
                         </p>
                         <button className="border-2 border-[#e9345b] bg-transparent text-[#920323] px-10 py-3 rounded-full text-lg hover:bg-[#e9345b] hover:text-white transition-all duration-300">
                             Learn More
